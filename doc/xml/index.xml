@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="structsplinart_1_1_circle" kind="struct"><name>splinart::Circle</name>
+    <member refid="structsplinart_1_1_circle_1ad4220da6a834a5f5bbca958070792d26" kind="variable"><name>theta</name></member>
+    <member refid="structsplinart_1_1_circle_1a286e5ed0faf2e3a4dd4ef6be4d40db64" kind="variable"><name>path</name></member>
+    <member refid="structsplinart_1_1_circle_1a6a7c30a134d59a4f9a9a384772bb5ab0" kind="variable"><name>color</name></member>
+    <member refid="structsplinart_1_1_circle_1a6e94e7be198c2a3155c3c36fe698a664" kind="function"><name>Circle</name></member>
+  </compound>
+  <compound refid="namespacesplinart" kind="namespace"><name>splinart</name>
+    <member refid="build__img_8hpp_1ab1e7c6a4a82b52d16bc9688255c6506e" kind="function"><name>draw_pixel</name></member>
+    <member refid="build__img_8hpp_1aff5d3515234bfb85bde9fd54d91887f4" kind="function"><name>update_path</name></member>
+    <member refid="build__img_8hpp_1a8ab7189da168d20407ec31cff3c75067" kind="function"><name>build_img</name></member>
+    <member refid="imshow_8hpp_1a879a75b50b17ac55aae9a67510bdb216" kind="function"><name>imshow</name></member>
+    <member refid="spline_8hpp_1af118ecb94c3abd85b0a426570849ff53" kind="function"><name>spline</name></member>
+    <member refid="spline_8hpp_1ae7e76b88e6575f011b2b18e173abef53" kind="function"><name>splint</name></member>
+  </compound>
+  <compound refid="namespacext_1_1placeholders" kind="namespace"><name>xt::placeholders</name>
+  </compound>
+  <compound refid="build__img_8hpp" kind="file"><name>build_img.hpp</name>
+  </compound>
+  <compound refid="imshow_8hpp" kind="file"><name>imshow.hpp</name>
+  </compound>
+  <compound refid="shapes_8hpp" kind="file"><name>shapes.hpp</name>
+  </compound>
+  <compound refid="spline_8hpp" kind="file"><name>spline.hpp</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include</name>
+  </compound>
+  <compound refid="dir_23db65c89720dc66f0fcbfd4dc5f70ca" kind="dir"><name>/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart</name>
+  </compound>
+</doxygenindex>

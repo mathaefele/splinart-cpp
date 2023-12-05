@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="shapes_8hpp" kind="file" language="C++">
+    <compoundname>shapes.hpp</compoundname>
+    <includes local="no">array</includes>
+    <includes local="no">utility</includes>
+    <includes local="no">xtensor/xfixed.hpp</includes>
+    <includes local="no">xtensor/xtensor.hpp</includes>
+    <includedby refid="build__img_8hpp" local="yes">/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/shapes.hpp</label>
+        <link refid="shapes_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>array</label>
+      </node>
+      <node id="3">
+        <label>utility</label>
+      </node>
+      <node id="4">
+        <label>xtensor/xfixed.hpp</label>
+      </node>
+      <node id="5">
+        <label>xtensor/xtensor.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp</label>
+        <link refid="build__img_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/shapes.hpp</label>
+        <link refid="shapes_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structsplinart_1_1_circle" prot="public">splinart::Circle</innerclass>
+    <innernamespace refid="namespacesplinart">splinart</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copyright<sp/>2023<sp/>SPLINART<sp/>TEAM.<sp/>All<sp/>rights<sp/>reserved.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;array&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;xtensor/xfixed.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;xtensor/xtensor.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">splinart<sp/>{</highlight></codeline>
+<codeline lineno="12" refid="structsplinart_1_1_circle" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsplinart_1_1_circle" kindref="compound">Circle</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><ref refid="structsplinart_1_1_circle" kindref="compound">Circle</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>xt::xtensor_fixed&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>xt::xshape&lt;2&gt;&gt;<sp/>&amp;center,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>radius,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::size_t<sp/>npoints<sp/>=<sp/>50);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="structsplinart_1_1_circle_1ad4220da6a834a5f5bbca958070792d26" refkind="member"><highlight class="normal"><sp/><sp/>xt::xtensor&lt;double,<sp/>1&gt;<sp/><ref refid="structsplinart_1_1_circle_1ad4220da6a834a5f5bbca958070792d26" kindref="member">theta</ref>;<sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>xt::xtensor&lt;double,<sp/>2&gt;</highlight></codeline>
+<codeline lineno="18" refid="structsplinart_1_1_circle_1a286e5ed0faf2e3a4dd4ef6be4d40db64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structsplinart_1_1_circle_1a286e5ed0faf2e3a4dd4ef6be4d40db64" kindref="member">path</ref>;<sp/></highlight></codeline>
+<codeline lineno="19" refid="structsplinart_1_1_circle_1a6a7c30a134d59a4f9a9a384772bb5ab0" refkind="member"><highlight class="normal"><sp/><sp/>xt::xtensor_fixed&lt;double,<sp/>xt::xshape&lt;4&gt;&gt;<sp/><ref refid="structsplinart_1_1_circle_1a6a7c30a134d59a4f9a9a384772bb5ab0" kindref="member">color</ref>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>0.61960784313725492,<sp/>0.41568627450980394,<sp/>0,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>1.0};<sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>splinart</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/shapes.hpp"/>
+  </compounddef>
+</doxygen>

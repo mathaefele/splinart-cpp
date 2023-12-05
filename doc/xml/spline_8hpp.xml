@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="spline_8hpp" kind="file" language="C++">
+    <compoundname>spline.hpp</compoundname>
+    <includes local="no">algorithm</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">xtensor/xio.hpp</includes>
+    <includes local="no">xtensor/xtensor.hpp</includes>
+    <includes local="no">xtensor/xview.hpp</includes>
+    <includedby refid="build__img_8hpp" local="yes">/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/spline.hpp</label>
+        <link refid="spline_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithm</label>
+      </node>
+      <node id="3">
+        <label>cmath</label>
+      </node>
+      <node id="4">
+        <label>xtensor/xio.hpp</label>
+      </node>
+      <node id="5">
+        <label>xtensor/xtensor.hpp</label>
+      </node>
+      <node id="6">
+        <label>xtensor/xview.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp</label>
+        <link refid="build__img_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/spline.hpp</label>
+        <link refid="spline_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacesplinart">splinart</innernamespace>
+    <innernamespace refid="namespacext_1_1placeholders">xt::placeholders</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copyright<sp/>2023<sp/>SPLINART<sp/>TEAM.<sp/>All<sp/>rights<sp/>reserved.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;xtensor/xio.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;xtensor/xtensor.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;xtensor/xview.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">xt::placeholders;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">splinart<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>spline(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>xt::xtensor&lt;double,<sp/>1&gt;<sp/>&amp;xs,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>xt::xtensor&lt;double,<sp/>2&gt;<sp/>&amp;ys)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>xs.shape()[0];</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>u_i<sp/>=<sp/>xt::zeros_like(ys);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>y2s<sp/>=<sp/>xt::zeros_like(ys);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>dif<sp/>=<sp/>xt::eval(xt::diff(xs));</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sig<sp/>=<sp/>xt::eval(</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>xt::view(dif,<sp/>xt::range(_,<sp/>dif.size()<sp/>-<sp/>1))<sp/>/</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(xt::view(xs,<sp/>xt::range(2,<sp/>_))<sp/>-<sp/>xt::view(xs,<sp/>xt::range(_,<sp/>n<sp/>-<sp/>2))));</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>xt::view(u_i,<sp/>xt::range(1,<sp/>n<sp/>-<sp/>1))<sp/>=</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(xt::view(ys,<sp/>xt::range(2,<sp/>_))<sp/>-<sp/>xt::view(ys,<sp/>xt::range(1,<sp/>n<sp/>-<sp/>1)))<sp/>/</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xt::view(dif,<sp/>xt::range(1,<sp/>_),<sp/>xt::newaxis())<sp/>-</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(xt::view(ys,<sp/>xt::range(1,<sp/>n<sp/>-<sp/>1))<sp/>-<sp/>xt::view(ys,<sp/>xt::range(_,<sp/>n<sp/>-<sp/>2)))<sp/>/</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xt::view(dif,<sp/>xt::range(_,<sp/>dif.shape()[0]<sp/>-<sp/>1),<sp/>xt::newaxis());</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(std::size_t<sp/>i<sp/>=<sp/>1;<sp/>i<sp/>&lt;<sp/>n<sp/>-<sp/>1;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>p_i<sp/>=<sp/>sig[i<sp/>-<sp/>1]<sp/>*<sp/>xt::view(y2s,<sp/>i<sp/>-<sp/>1)<sp/>+<sp/>2.0;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>xt::view(y2s,<sp/>i)<sp/>=<sp/>(sig[i<sp/>-<sp/>1]<sp/>-<sp/>1)<sp/>/<sp/>p_i;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>xt::view(u_i,<sp/>i)<sp/>=<sp/>(6<sp/>*<sp/>xt::view(u_i,<sp/>i)<sp/>/<sp/>(xs[i<sp/>+<sp/>1]<sp/>-<sp/>xs[i<sp/>-<sp/>1])<sp/>-</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sig[i<sp/>-<sp/>1]<sp/>*<sp/>xt::view(u_i,<sp/>i<sp/>-<sp/>1))<sp/>/</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_i;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(std::size_t<sp/>i<sp/>=<sp/>n<sp/>-<sp/>2;<sp/>i<sp/>!=<sp/>std::size_t(-1);<sp/>--i)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>xt::view(y2s,<sp/>i)<sp/>=</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xt::view(y2s,<sp/>i)<sp/>*<sp/>xt::view(y2s,<sp/>i<sp/>+<sp/>1)<sp/>+<sp/>xt::view(u_i,<sp/>i);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y2s;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>splint(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>xt::xtensor&lt;double,<sp/>1&gt;<sp/>&amp;xs,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>xt::xtensor&lt;double,<sp/>2&gt;<sp/>&amp;ys,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>xt::xtensor&lt;double,<sp/>2&gt;<sp/>&amp;y2s,<sp/>xt::xtensor&lt;double,<sp/>1&gt;<sp/>&amp;x,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xt::xtensor&lt;double,<sp/>2&gt;<sp/>&amp;y)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(std::size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>x.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>upper<sp/>=<sp/>std::upper_bound(xs.cbegin(),<sp/>xs.cend(),<sp/>x[i]);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>khi<sp/>=<sp/>upper<sp/>!=<sp/>xs.end()<sp/>?<sp/>std::distance(xs.begin(),<sp/>upper)<sp/>:<sp/>xs.size();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(khi<sp/>&gt;=<sp/>xs.size())<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>khi<sp/>=<sp/>xs.size()<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>klo<sp/>=<sp/>khi<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>step<sp/>=<sp/>xs[khi]<sp/>-<sp/>xs[klo];</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>x_right<sp/>=<sp/>(xs[khi]<sp/>-<sp/>x[i])<sp/>/<sp/>step;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>x_left<sp/>=<sp/>(x[i]<sp/>-<sp/>xs[klo])<sp/>/<sp/>step;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>xt::view(y,<sp/>i)<sp/>=<sp/>(x_right<sp/>*<sp/>xt::view(ys,<sp/>klo)<sp/>+<sp/>x_left<sp/>*<sp/>xt::view(ys,<sp/>khi)<sp/>+</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((std::pow(x_right,<sp/>3)<sp/>-<sp/>x_right)<sp/>*<sp/>xt::view(y2s,<sp/>klo)<sp/>+</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(std::pow(x_left,<sp/>3)<sp/>-<sp/>x_left)<sp/>*<sp/>xt::view(y2s,<sp/>khi))<sp/>*</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(step,<sp/>2)<sp/>/<sp/>6);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>splinart</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/spline.hpp"/>
+  </compounddef>
+</doxygen>
