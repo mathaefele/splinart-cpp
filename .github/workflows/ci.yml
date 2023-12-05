@@ -3,7 +3,18 @@ name: "Run CI"
 on: pull_request
 
 jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: prefix-dev/setup-pixi@v0.4.1
+        with:
+          pixi-version: v0.9.1
+          cache: true
+      - run: pixi run pre-commit run --all-files
+
   tests:
+    needs: pre-commit
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -15,13 +26,3 @@ jobs:
           pixi-version: v0.9.1
           cache: true
       - run: pixi run test
-
-  pre-commit:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: prefix-dev/setup-pixi@v0.4.1
-        with:
-          pixi-version: v0.9.1
-          cache: true
-      - run: pixi run pre-commit run --all-files
