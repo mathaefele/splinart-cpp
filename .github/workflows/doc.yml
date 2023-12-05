@@ -5,7 +5,17 @@ concurrency:
 
 name: "Run CI"
 
-on: pull_request
+on:
+  pull_request:
+    branches:
+      main
+    paths:
+      - 'doc/**'
+      - '.github/workflows/doc.yml'
+
+  push:
+    branches:
+      main
 
 jobs:
   build:
