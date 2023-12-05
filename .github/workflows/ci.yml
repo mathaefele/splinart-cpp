@@ -13,6 +13,18 @@ jobs:
           cache: true
       - run: pixi run pre-commit run --all-files
 
+  cppcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: prefix-dev/setup-pixi@v0.4.1
+        with:
+          pixi-version: v0.9.1
+          cache: true
+      - run: pixi run cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug -DBUILD_EXAMPLES=ON
+      - run: pixi run cppcheck --enable=all -q --project=.build/compile_commands.json --suppressions-list=.cppcheck 2> cppcheck_err.txt
+      - run: ./tests/assert_cppcheck.sh
+
   tests:
     needs: pre-commit
     runs-on: ${{ matrix.os }}
