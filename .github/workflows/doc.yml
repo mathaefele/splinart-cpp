@@ -13,4 +13,5 @@ jobs:
           cache: true
       - run: pixi run doc
       - name: Upload Pages artifact
+        path: doc/build
         uses: actions/upload-pages-artifact@v2
