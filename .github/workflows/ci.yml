@@ -15,3 +15,9 @@ jobs:
           pixi-version: v0.9.1
           cache: true
       - run: pixi run test
+
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: pre-commit run --all-files
