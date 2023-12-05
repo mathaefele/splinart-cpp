@@ -11,3 +11,5 @@ spline
 ```{toctree}
 api/index.md
 ```
+
+Plus a stupid line
