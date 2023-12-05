@@ -2,7 +2,7 @@ name: "Run CI"
 
 on:
   pull_request:
-    paths_ignore:
+    paths-ignore:
       - 'doc/**'
 
 jobs:
