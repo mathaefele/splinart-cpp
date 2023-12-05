@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="build__img_8hpp" kind="file" language="C++">
+    <compoundname>build_img.hpp</compoundname>
+    <includes local="no">xtensor/xfixed.hpp</includes>
+    <includes local="no">xtensor/xrandom.hpp</includes>
+    <includes local="no">xtensor/xtensor.hpp</includes>
+    <includes refid="shapes_8hpp" local="yes">shapes.hpp</includes>
+    <includes refid="spline_8hpp" local="yes">spline.hpp</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp</label>
+        <link refid="build__img_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>shapes.hpp</label>
+        <link refid="shapes_8hpp_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>spline.hpp</label>
+        <link refid="spline_8hpp_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>algorithm</label>
+      </node>
+      <node id="6">
+        <label>array</label>
+      </node>
+      <node id="10">
+        <label>cmath</label>
+      </node>
+      <node id="7">
+        <label>utility</label>
+      </node>
+      <node id="2">
+        <label>xtensor/xfixed.hpp</label>
+      </node>
+      <node id="11">
+        <label>xtensor/xio.hpp</label>
+      </node>
+      <node id="3">
+        <label>xtensor/xrandom.hpp</label>
+      </node>
+      <node id="4">
+        <label>xtensor/xtensor.hpp</label>
+      </node>
+      <node id="12">
+        <label>xtensor/xview.hpp</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacesplinart">splinart</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copyright<sp/>2023<sp/>SPLINART<sp/>TEAM.<sp/>All<sp/>rights<sp/>reserved.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;xtensor/xfixed.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;xtensor/xrandom.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;xtensor/xtensor.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;shapes.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;spline.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">splinart<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>draw_pixel(xt::xtensor&lt;double,<sp/>3&gt;<sp/>&amp;img,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>xt::xtensor&lt;double,<sp/>2&gt;<sp/>&amp;spline,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xt::xtensor_fixed&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>xt::xshape&lt;4&gt;&gt;<sp/>color)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>std::size_t<sp/>width<sp/>=<sp/>img.shape(0);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>std::size_t<sp/>height<sp/>=<sp/>img.shape(1);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>xs<sp/>=<sp/>xt::view(spline,<sp/>xt::all(),<sp/>0);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ys<sp/>=<sp/>xt::view(spline,<sp/>xt::all(),<sp/>1);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>newxs<sp/>=<sp/>xt::floor(xs<sp/>*<sp/>width);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>xs_mask<sp/>=<sp/>newxs<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>newxs<sp/>&lt;<sp/>width;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>newys<sp/>=<sp/>xt::floor(ys<sp/>*<sp/>height);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ys_mask<sp/>=<sp/>newys<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>newys<sp/>&lt;<sp/>height;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>mask<sp/>=<sp/>xs_mask<sp/>&amp;&amp;<sp/>ys_mask;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(std::size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>xs.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mask[i])<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>x<sp/>=<sp/>newxs[i];</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>y<sp/>=<sp/>newys[i];</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha<sp/>=<sp/>1<sp/>-<sp/>color(3);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>xt::view(img,<sp/>x,<sp/>y)<sp/>=<sp/>color<sp/>+<sp/>xt::view(img,<sp/>x,<sp/>y)<sp/>*<sp/>alpha;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update_path(xt::xtensor&lt;double,<sp/>2&gt;<sp/>&amp;path,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scale_value<sp/>=<sp/>0.00001,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>periodic<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>path.shape(0);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>scale<sp/>=<sp/>xt::arange(n)<sp/>*<sp/>scale_value;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>radius<sp/>=<sp/>1.0<sp/>-<sp/>2.0<sp/>*<sp/>xt::random::rand&lt;double&gt;({n});</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>noise<sp/>=<sp/>radius<sp/>*<sp/>scale;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>pi<sp/>=<sp/>xt::numeric_constants&lt;double&gt;::PI;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>phi<sp/>=<sp/>xt::random::rand&lt;double&gt;({n})<sp/>*<sp/>2<sp/>*<sp/>pi;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>std::array&lt;std::size_t,<sp/>2&gt;<sp/>shape{n,<sp/>2};</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>xt::xtensor&lt;double,<sp/>2&gt;<sp/>rnd<sp/>=<sp/>xt::empty&lt;double&gt;(shape);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>xt::view(rnd,<sp/>xt::all(),<sp/>0)<sp/>=<sp/>xt::cos(phi);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>xt::view(rnd,<sp/>xt::all(),<sp/>1)<sp/>=<sp/>xt::sin(phi);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>path<sp/>+=<sp/>rnd<sp/>*<sp/>xt::view(noise,<sp/>xt::all(),<sp/>xt::newaxis());</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(periodic)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>xt::view(path,<sp/>n<sp/>-<sp/>1)<sp/>=<sp/>xt::view(path,<sp/>0);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>build_img(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::array&lt;std::size_t,<sp/>2&gt;<sp/>&amp;img_size,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;Circle&gt;<sp/>&amp;circles,<sp/>std::size_t<sp/>rep<sp/>=<sp/>300,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>periodic<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scale_color<sp/>=<sp/>0.005,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scale_value<sp/>=<sp/>0.00001)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>std::array&lt;std::size_t,<sp/>3&gt;<sp/>shape{img_size[0],<sp/>img_size[1],<sp/>4};</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>xt::xtensor&lt;double,<sp/>3&gt;<sp/>img<sp/>=<sp/>xt::ones&lt;double&gt;(shape);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>xs_func<sp/>=<sp/>[]()<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>std::size_t<sp/>nsamples<sp/>=<sp/>500;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>pi<sp/>=<sp/>xt::numeric_constants&lt;double&gt;::PI;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>xt::eval(xt::fmod(xt::random::rand&lt;double&gt;({1})[0]<sp/>+</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xt::linspace&lt;double&gt;(0,<sp/>2<sp/>*<sp/>pi,<sp/>nsamples),</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2<sp/>*<sp/>pi));</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>xt::xtensor&lt;double,<sp/>1&gt;<sp/>xspline<sp/>=<sp/>xs_func();</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;circle<sp/>:<sp/>circles)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>std::array&lt;std::size_t,<sp/>2&gt;<sp/>spline_shape{xspline.size(),<sp/>2};</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>xt::xtensor&lt;double,<sp/>2&gt;<sp/>yspline<sp/>=<sp/>xt::zeros&lt;double&gt;(spline_shape);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(std::size_t<sp/>r<sp/>=<sp/>0;<sp/>r<sp/>&lt;<sp/>rep;<sp/>++r)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>yder2<sp/>=<sp/>spline(circle.theta,<sp/>circle.path);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>xspline<sp/>=<sp/>xs_func();</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>splint(circle.theta,<sp/>circle.path,<sp/>yder2,<sp/>xspline,<sp/>yspline);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>draw_pixel(img,<sp/>yspline,<sp/>circle.color<sp/>*<sp/>scale_color);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>update_path(circle.path,<sp/>scale_value,<sp/>periodic);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>img;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>splinart</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp"/>
+  </compounddef>
+</doxygen>

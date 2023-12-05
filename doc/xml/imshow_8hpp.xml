@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="imshow_8hpp" kind="file" language="C++">
+    <compoundname>imshow.hpp</compoundname>
+    <includes local="no">opencv2/opencv.hpp</includes>
+    <includes local="no">xtensor/xtensor.hpp</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/imshow.hpp</label>
+        <link refid="imshow_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>opencv2/opencv.hpp</label>
+      </node>
+      <node id="3">
+        <label>xtensor/xtensor.hpp</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacesplinart">splinart</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copyright<sp/>2023<sp/>SPLINART<sp/>TEAM.<sp/>All<sp/>rights<sp/>reserved.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;opencv2/opencv.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;xtensor/xtensor.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">splinart<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>imshow(xt::xtensor&lt;double,<sp/>3&gt;<sp/>&amp;img)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>width<sp/>=<sp/>img.shape(0);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>height<sp/>=<sp/>img.shape(1);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>M(width,<sp/>height,<sp/>CV_64FC4,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(img.data()));</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>cv::imshow(</highlight><highlight class="stringliteral">&quot;splinart&quot;</highlight><highlight class="normal">,<sp/>M);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>cv::waitKey(0);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>splinart</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/imshow.hpp"/>
+  </compounddef>
+</doxygen>

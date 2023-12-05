@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_23db65c89720dc66f0fcbfd4dc5f70ca" kind="dir">
+    <compoundname>/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart</compoundname>
+    <innerfile refid="build__img_8hpp">build_img.hpp</innerfile>
+    <innerfile refid="imshow_8hpp">imshow.hpp</innerfile>
+    <innerfile refid="shapes_8hpp">shapes.hpp</innerfile>
+    <innerfile refid="spline_8hpp">spline.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacesplinart" kind="namespace" language="C++">
+    <compoundname>splinart</compoundname>
+    <innerclass refid="structsplinart_1_1_circle" prot="public">splinart::Circle</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="build__img_8hpp_1ab1e7c6a4a82b52d16bc9688255c6506e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void splinart::draw_pixel</definition>
+        <argsstring>(xt::xtensor&lt; double, 3 &gt; &amp;img, const xt::xtensor&lt; double, 2 &gt; &amp;spline, xt::xtensor_fixed&lt; double, xt::xshape&lt; 4 &gt; &gt; color)</argsstring>
+        <name>draw_pixel</name>
+        <qualifiedname>splinart::draw_pixel</qualifiedname>
+        <param>
+          <type>xt::xtensor&lt; double, 3 &gt; &amp;</type>
+          <declname>img</declname>
+        </param>
+        <param>
+          <type>const xt::xtensor&lt; double, 2 &gt; &amp;</type>
+          <declname>spline</declname>
+        </param>
+        <param>
+          <type>xt::xtensor_fixed&lt; double, xt::xshape&lt; 4 &gt; &gt;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Add pixels on the image. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>img</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The image where we add pixels.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spline</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The coordinates of the pixels to add.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Define the RGBA color of the pixels. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp" line="23" column="13" bodyfile="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp" bodystart="23" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="build__img_8hpp_1aff5d3515234bfb85bde9fd54d91887f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void splinart::update_path</definition>
+        <argsstring>(xt::xtensor&lt; double, 2 &gt; &amp;path, double scale_value=0.00001, bool periodic=false)</argsstring>
+        <name>update_path</name>
+        <qualifiedname>splinart::update_path</qualifiedname>
+        <param>
+          <type>xt::xtensor&lt; double, 2 &gt; &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>scale_value</declname>
+          <defval>0.00001</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>periodic</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Update the path of the spline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>We move each point of the path by a random vector defined inside a circle where</para>
+<para><itemizedlist>
+<listitem><para>the center is the point of the path</para>
+</listitem><listitem><para>the radius is a random number between [-1, 1]</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The coordinates of the cubic spline.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>periodic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If True, the first and the last points of the path are the same (the default value is False).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scale_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rescale the random radius (default value is 0.00001). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp" line="62" column="13" bodyfile="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp" bodystart="62" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="build__img_8hpp_1a8ab7189da168d20407ec31cff3c75067" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto splinart::build_img</definition>
+        <argsstring>(const std::array&lt; std::size_t, 2 &gt; &amp;img_size, std::vector&lt; Circle &gt; &amp;circles, std::size_t rep=300, bool periodic=true, double scale_color=0.005, double scale_value=0.00001)</argsstring>
+        <name>build_img</name>
+        <qualifiedname>splinart::build_img</qualifiedname>
+        <param>
+          <type>const std::array&lt; std::size_t, 2 &gt; &amp;</type>
+          <declname>img_size</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="structsplinart_1_1_circle" kindref="compound">Circle</ref> &gt; &amp;</type>
+          <declname>circles</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>rep</declname>
+          <defval>300</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>periodic</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>scale_color</declname>
+          <defval>0.005</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>scale_value</declname>
+          <defval>0.00001</defval>
+        </param>
+        <briefdescription>
+<para>Update the image using a cubic spline on a shape. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>img_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the squared output image.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>circles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The list of circles to plot on th image.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of iterations (default is 300).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>periodic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Define if the first and last points of the path must be equal (default is True).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scale_color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scale the given color (default is 0.005).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scale_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rescale the random radius (default value is 0.00001). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp" line="98" column="13" bodyfile="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp" bodystart="98" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="imshow_8hpp_1a879a75b50b17ac55aae9a67510bdb216" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void splinart::imshow</definition>
+        <argsstring>(xt::xtensor&lt; double, 3 &gt; &amp;img)</argsstring>
+        <name>imshow</name>
+        <qualifiedname>splinart::imshow</qualifiedname>
+        <param>
+          <type>xt::xtensor&lt; double, 3 &gt; &amp;</type>
+          <declname>img</declname>
+        </param>
+        <briefdescription>
+<para>Show the result image using the imshow function of OpenCV. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>img</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The image to draw </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/imshow.hpp" line="15" column="13" bodyfile="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/imshow.hpp" bodystart="15" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="spline_8hpp_1af118ecb94c3abd85b0a426570849ff53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto splinart::spline</definition>
+        <argsstring>(const xt::xtensor&lt; double, 1 &gt; &amp;xs, const xt::xtensor&lt; double, 2 &gt; &amp;ys)</argsstring>
+        <name>spline</name>
+        <qualifiedname>splinart::spline</qualifiedname>
+        <param>
+          <type>const xt::xtensor&lt; double, 1 &gt; &amp;</type>
+          <declname>xs</declname>
+        </param>
+        <param>
+          <type>const xt::xtensor&lt; double, 2 &gt; &amp;</type>
+          <declname>ys</declname>
+        </param>
+        <briefdescription>
+<para>Return the second derivative of a cubic spline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x coordinate of the cubic spline.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ys</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y coordinate of the cubic spline.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The second derivative of the cubic spline. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/spline.hpp" line="24" column="13" bodyfile="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/spline.hpp" bodystart="24" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="spline_8hpp_1ae7e76b88e6575f011b2b18e173abef53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void splinart::splint</definition>
+        <argsstring>(const xt::xtensor&lt; double, 1 &gt; &amp;xs, const xt::xtensor&lt; double, 2 &gt; &amp;ys, const xt::xtensor&lt; double, 2 &gt; &amp;y2s, xt::xtensor&lt; double, 1 &gt; &amp;x, xt::xtensor&lt; double, 2 &gt; &amp;y)</argsstring>
+        <name>splint</name>
+        <qualifiedname>splinart::splint</qualifiedname>
+        <param>
+          <type>const xt::xtensor&lt; double, 1 &gt; &amp;</type>
+          <declname>xs</declname>
+        </param>
+        <param>
+          <type>const xt::xtensor&lt; double, 2 &gt; &amp;</type>
+          <declname>ys</declname>
+        </param>
+        <param>
+          <type>const xt::xtensor&lt; double, 2 &gt; &amp;</type>
+          <declname>y2s</declname>
+        </param>
+        <param>
+          <type>xt::xtensor&lt; double, 1 &gt; &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>xt::xtensor&lt; double, 2 &gt; &amp;</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate a sample on a cubic spline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x coordinates of the cubic spline.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ys</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y coordinates of the cubic spline.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y2s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second derivative of the cubic spline.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The sample where to evaluate the cubic spline.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The output coordinates of the sample. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/spline.hpp" line="69" column="13" bodyfile="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/spline.hpp" bodystart="69" bodyend="90"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mhaefele/ownCloud_old/work/groupe_calcul/2023-12_githubactions/splinart-cpp/include/splinart/build_img.hpp" line="13" column="1"/>
+  </compounddef>
+</doxygen>
